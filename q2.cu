@@ -43,7 +43,7 @@
 #define MIN 0
 #define MAX 99
 #define TOLERANCE 0.0001
-#define PARALLELIZABLE_FRACTION 0.80
+#define PARALLELIZABLE_FRACTION 0.50
 #define BLOCK_SIZE 1024
 
 /** Struct to store start and stop times */
