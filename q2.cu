@@ -27,7 +27,7 @@
  */
 
 // nvcc -lm q2.cu -o q2
-// gcc -n 32 ./q2 1000000 100
+// ./q2 1000000 100
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,7 +43,8 @@
 #define MIN 0
 #define MAX 99
 #define TOLERANCE 0.0001
-#define PARALLELIZABLE_FRACTION 0.95
+#define PARALLELIZABLE_FRACTION 0.80
+#define BLOCK_SIZE 1024
 
 /** Struct to store start and stop times */
 typedef struct {
@@ -74,18 +75,18 @@ double amdahl_speedup(int p) {
 }
 
 /**
- * Calculate the partial Euclidean distance between two vectors
+ * Calculate the Euclidean distance between two vectors in serial
  * @param p: The first vector
  * @param q: The second vector
  * @param n: The number of dimensions
  * @return: The partial Euclidean distance
  */
-double euclidean_distance(int* p, int* q, int n) {
+double euclideanDistanceSerial(int* p, int* q, int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
         sum += (p[i] - q[i]) * (p[i] - q[i]);
     }
-    return sum;
+    return sqrt(sum);
 }
 
 /**
@@ -114,6 +115,125 @@ void display_cuda_info() {
     printf("Total Global Memory: %lu bytes\n", device_properties.totalGlobalMem);
     printf("Shared Memory Per Block: %lu bytes\n", device_properties.sharedMemPerBlock);
     printf("Registers Per Block: %d\n", device_properties.regsPerBlock);
+}
+
+// CUDA kernel to compute squared differences
+__global__ void squaredDifferenceKernel(const int *a, const int *b, double *result, const int m) {
+    // Calculate starting index for this thread
+    int i = threadIdx.x + blockIdx.x * blockDim.x;
+
+    // Compute squared difference if within bounds
+    if (i < m) {
+        int diff = a[i] - b[i];
+        result[i] = (double)(diff * diff);
+    }
+}
+
+// Custom atomicAdd function for double because apparently I'm using some antiquated version of CUDA
+__device__ double atomicAddDouble(double* address, double val) {
+    unsigned long long int* address_as_ull = (unsigned long long int*)address;
+    unsigned long long int old = *address_as_ull, assumed;
+    do {
+        assumed = old;
+        old = atomicCAS(address_as_ull, assumed, __double_as_longlong(val + __longlong_as_double(assumed)));
+    } while (assumed != old);
+    return __longlong_as_double(old);
+}
+
+// CUDA kernel for parallel reduction within a block
+__global__ void reduceKernel(double *input, double *output, int size) {
+    __shared__ double sharedData[BLOCK_SIZE];
+    
+    int threadId = threadIdx.x;
+    int i = threadIdx.x + blockIdx.x * blockDim.x;
+
+    // Load elements into shared memory
+    sharedData[threadId] = (i < size) ? input[i] : 0.0;
+    __syncthreads();
+
+    // Perform reduction in shared memory
+    for (int stride = blockDim.x / 2; stride > 0; stride >>= 1) {
+        if (threadId < stride) {
+            sharedData[threadId] += sharedData[threadId + stride];
+        }
+        __syncthreads();
+    }
+
+    // Write result of this block's reduction to global memory
+    if (threadId == 0) {
+        output[blockIdx.x] = sharedData[0];
+    }
+}
+
+// CUDA kernel to perform final reduction across blocks
+__global__ void finalReductionKernel(double *input, double *output, int size) {
+    __shared__ double sharedData[BLOCK_SIZE];
+
+    int threadId = threadIdx.x;
+    int i = threadIdx.x + blockIdx.x * blockDim.x;
+
+    // Load elements into shared memory
+    sharedData[threadId] = (i < size) ? input[i] : 0.0;
+    __syncthreads();
+
+    // Perform reduction in shared memory
+    for (int stride = blockDim.x / 2; stride > 0; stride >>= 1) {
+        if (threadId < stride) {
+            sharedData[threadId] += sharedData[threadId + stride];
+        }
+        __syncthreads();
+    }
+
+    // Write result of this block's reduction to global memory
+    if (threadId == 0) {
+        atomicAddDouble(output, sharedData[0]);
+    }
+}
+
+// Host function to compute Euclidean distance
+double euclideanDistanceCUDA(const int *a, const int *b, int m) {
+    int *d_a, *d_b;
+    double *d_temp, *d_block_sums, *d_result;
+
+    // Allocate memory on the device for vectors and the temporary result array
+    cudaMalloc((void**)&d_a, m * sizeof(int));
+    cudaMalloc((void**)&d_b, m * sizeof(int));
+    cudaMalloc((void**)&d_temp, m * sizeof(double));
+    cudaMalloc((void**)&d_block_sums, ((m + BLOCK_SIZE - 1) / BLOCK_SIZE) * sizeof(double));
+    cudaMalloc((void**)&d_result, sizeof(double));
+
+    // Copy data from host to device
+    cudaMemcpy(d_a, a, m * sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, m * sizeof(int), cudaMemcpyHostToDevice);
+
+    // Initialize result to 0
+    double initial_result = 0.0;
+    cudaMemcpy(d_result, &initial_result, sizeof(double), cudaMemcpyHostToDevice);
+
+    // Launch kernel to compute squared differences
+    int numBlocks = (m + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    squaredDifferenceKernel<<<numBlocks, BLOCK_SIZE>>>(d_a, d_b, d_temp, m);
+
+    // Perform reduction to sum up squared differences within each block
+    reduceKernel<<<numBlocks, BLOCK_SIZE>>>(d_temp, d_block_sums, m);
+
+    // Launch final reduction kernel to sum up all block results
+    int finalNumBlocks = (numBlocks + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    finalReductionKernel<<<finalNumBlocks, BLOCK_SIZE>>>(d_block_sums, d_result, numBlocks);
+
+    // Copy the final result to host
+    double sum;
+    cudaMemcpy(&sum, d_result, sizeof(double), cudaMemcpyDeviceToHost);
+
+    // Free device memory
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_temp);
+    cudaFree(d_block_sums);
+    cudaFree(d_result);
+
+    // Return the square root of the sum to compute the Euclidean distance
+    return sqrt(sum);
 }
 
 /**
@@ -178,4 +298,54 @@ int main(int argc, char** argv) {
     double total_serial_time = 0;
 
     display_cuda_info();
+
+    // Perform the Euclidean distance calculation for num_runs
+    for (int run = 0; run < num_runs; run++) {
+        Stopwatch parallel_timer, serial_timer;
+
+        // Start parallel timing
+        clock_gettime(CLOCK_MONOTONIC, &parallel_timer.start);
+
+        // Perform parallel Euclidean distance calculation
+        double result_c = euclideanDistanceCUDA(vector1, vector2, m);
+
+        // Stop parallel timing
+        clock_gettime(CLOCK_MONOTONIC, &parallel_timer.stop);
+        total_parallel_time += calculate_time(parallel_timer);
+
+        // Start serial timing
+        clock_gettime(CLOCK_MONOTONIC, &serial_timer.start);
+
+        // Perform serial Euclidean distance calculation
+        double result_s = euclideanDistanceSerial(vector1, vector2, m);
+
+        clock_gettime(CLOCK_MONOTONIC, &serial_timer.stop);
+        total_serial_time += calculate_time(serial_timer);
+
+        // Compare results after each run
+        if (!compare_result(result_s, result_c)) {
+            printf("Results do not match in run %d! Serial: %lf, Parallel: %lf\n", run + 1, result_s, result_c);
+        }
+    }
+
+    // Calculate average times
+    double average_parallel_time = total_parallel_time / num_runs;
+    double average_serial_time = total_serial_time / num_runs;
+
+    // Output results and speedup calculations
+    double actual_speedup = average_serial_time / average_parallel_time;
+    double theoretical_speedup = amdahl_speedup(m);
+    double speedup_ratio = (actual_speedup / theoretical_speedup) * 100;
+
+    printf("Average Serial Time:\t\t\t%lfs\n", average_serial_time);
+    printf("Average Parallel Time:\t\t\t%lfs\n", average_parallel_time);
+    printf("Theoretical Speedup [Amdahl's Law]:\t%lf\n", theoretical_speedup);
+    printf("Actual Speedup:\t\t\t\t%lf\n", actual_speedup);
+    printf("Speedup Efficiency:\t\t\t%lf%%\n", speedup_ratio);
+
+    // Free allocated memory
+    free(vector1);
+    free(vector2);
+
+    return 0;
 }
