@@ -4,7 +4,7 @@
  * Class: COP6616 Parallel Computing
  * Instructor: Scott Piersall
  * Assignment: Homework 3
- * Filename: q2.c
+ * Filename: q2.cu
  * Description: This program computes the Euclidean distance between two points in 3D space using CUDA.
  */
 
@@ -44,7 +44,7 @@
 #define MAX 99
 #define TOLERANCE 0.0001
 #define PARALLELIZABLE_FRACTION 0.50
-#define BLOCK_SIZE 1024
+#define BLOCK_SIZE 512
 
 /** Struct to store start and stop times */
 typedef struct {

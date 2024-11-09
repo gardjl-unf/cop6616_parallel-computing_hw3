@@ -4,7 +4,7 @@
  * Class: COP6616 Parallel Computing
  * Instructor: Scott Piersall
  * Assignment: Homework 3
- * Filename: q3.c
+ * Filename: q3.cu
  * Description: This program computes the Euclidean distance between two points in 3D space using CUDA.
  * 
  * INPUT IMAGES ARE OWNED BY CATHERINE ANDERSON OF THE PAINTED ME, LLC AND ARE USED FOR EDUCATIONAL PURPOSES ONLY
@@ -24,6 +24,8 @@
  */
 
 // nvcc -lm -lpng q3.cu -o q3
+// OR
+// nvcc -lm q3.cu -o q3 -L$HOME/libpng/lib -I$HOME/libpng/include -lpng
 // ./q3
 
 #include <stdio.h>
