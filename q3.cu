@@ -40,7 +40,7 @@
 #include <stdbool.h>
 #include <math.h>
 
-#define PARALLELIZABLE_FRACTION 0.50
+#define PARALLELIZABLE_FRACTION 0.40
 #define BLOCK_SIZE 1024
 #define NUM_IMAGES 7
 #define INPUT_LOCATION "./in/"
