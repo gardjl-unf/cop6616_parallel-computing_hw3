@@ -5,7 +5,11 @@
  * Instructor: Scott Piersall
  * Assignment: Homework 3
  * Filename: q4.cu
- * Description: This program computes the Euclidean distance between two points in 3D space using CUDA.
+ * Description: This program computes the multiplication of two matrices using CUDA. The matrices are filled with random
+ * values and the results are compared to a serial implementation. The program calculates the average time for both the
+ * serial and parallel implementations, as well as the theoretical and actual speedup. The program also outputs the
+ * difference in average serial time, average parallel time, theoretical speedup, actual speedup, and speedup efficiency
+ * between the double and integer implementations.
  */
 
 /**

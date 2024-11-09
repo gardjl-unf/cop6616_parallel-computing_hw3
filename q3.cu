@@ -5,7 +5,11 @@
  * Instructor: Scott Piersall
  * Assignment: Homework 3
  * Filename: q3.cu
- * Description: This program computes the Euclidean distance between two points in 3D space using CUDA.
+ * Description: This program converts a color image to grayscale using the Colorimetric method. It compares the
+ * performance of a serial CPU-based implementation to a parallel CUDA-based implementation. The program reads
+ * PNG images from the "in" directory and writes the grayscale images to the "out" directory. The program outputs
+ * the average time taken for the serial and parallel implementations, the theoretical speedup using Amdahl's law,
+ * the actual speedup, and the speedup efficiency.
  * 
  * INPUT IMAGES ARE OWNED BY CATHERINE ANDERSON OF THE PAINTED ME, LLC AND ARE USED FOR EDUCATIONAL PURPOSES ONLY
  * SHE IS MY PARTNER AND I HAVE PERMISSION TO USE THEM (I AM ALSO A PART OWNER OF THE PAINTED ME, LLC)
