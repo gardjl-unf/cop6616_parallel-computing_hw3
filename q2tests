@@ -1,0 +1,120 @@
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 1000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.000002s
+Average Parallel Time:                  0.000477s
+Theoretical Speedup [Amdahl's Law]:     1.998002
+Actual Speedup:                         0.004609
+Speedup Efficiency:                     0.230667%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 100000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.000218s
+Average Parallel Time:                  0.000668s
+Theoretical Speedup [Amdahl's Law]:     1.999980
+Actual Speedup:                         0.326267
+Speedup Efficiency:                     16.313530%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 1000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.002178s
+Average Parallel Time:                  0.002671s
+Theoretical Speedup [Amdahl's Law]:     1.999998
+Actual Speedup:                         0.815509
+Speedup Efficiency:                     40.775493%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 10000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.021802s
+Average Parallel Time:                  0.018909s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         1.152992
+Speedup Efficiency:                     57.649604%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 100000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.217731s
+Average Parallel Time:                  0.107885s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.018177
+Speedup Efficiency:                     100.908847%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 110000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.239486s
+Average Parallel Time:                  0.116823s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.049986
+Speedup Efficiency:                     102.499319%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 120000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.261313s
+Average Parallel Time:                  0.126060s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.072920
+Speedup Efficiency:                     103.646001%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 200000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    0.435498s
+Average Parallel Time:                  0.199160s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.186681
+Speedup Efficiency:                     109.334049%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 500000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    1.088922s
+Average Parallel Time:                  0.477112s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.282322
+Speedup Efficiency:                     114.116090%
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q2 750000000 100
+Number of CUDA-enabled devices: 1
+Device Name: NVIDIA GeForce GTX TITAN X
+Compute Capability: 5.2
+Total Global Memory: 12792627200 bytes
+Shared Memory Per Block: 49152 bytes
+Registers Per Block: 65536
+Average Serial Time:                    1.622030s
+Average Parallel Time:                  0.725269s
+Theoretical Speedup [Amdahl's Law]:     2.000000
+Actual Speedup:                         2.236453
+Speedup Efficiency:                     111.822659%

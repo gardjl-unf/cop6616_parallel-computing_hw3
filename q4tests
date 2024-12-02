@@ -1,0 +1,297 @@
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 10 10 10 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000002s
+Average Parallel Time:                  0.000570s
+Theoretical Speedup [Amdahl's Law]:     1.562500
+Actual Speedup:                         0.003527
+Speedup Efficiency:                     0.225709%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000002s
+Average Parallel Time:                  0.000140s
+Theoretical Speedup [Amdahl's Law]:     9.174312
+Actual Speedup:                         0.013270
+Speedup Efficiency:                     0.144646%
+
+Difference in Average Serial Time (Double vs Integer):          0.000000s
+Difference in Average Parallel Time (Double vs Integer):        0.000429s
+Difference in Theoretical Speedup (Double vs Integer):          -7.611812
+Difference in Actual Speedup (Double vs Integer):               -0.009744
+Difference in Speedup Efficiency (Double vs Integer):           0.081063%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 20 20 20 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000015s
+Average Parallel Time:                  0.000559s
+Theoretical Speedup [Amdahl's Law]:     1.612903
+Actual Speedup:                         0.026726
+Speedup Efficiency:                     1.657021%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000014s
+Average Parallel Time:                  0.000129s
+Theoretical Speedup [Amdahl's Law]:     16.806723
+Actual Speedup:                         0.106336
+Speedup Efficiency:                     0.632697%
+
+Difference in Average Serial Time (Double vs Integer):          0.000001s
+Difference in Average Parallel Time (Double vs Integer):        0.000430s
+Difference in Theoretical Speedup (Double vs Integer):          -15.193819
+Difference in Actual Speedup (Double vs Integer):               -0.079610
+Difference in Speedup Efficiency (Double vs Integer):           1.024324%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 30 30 30 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000050s
+Average Parallel Time:                  0.000524s
+Theoretical Speedup [Amdahl's Law]:     1.630435
+Actual Speedup:                         0.095939
+Speedup Efficiency:                     5.884263%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000045s
+Average Parallel Time:                  0.000100s
+Theoretical Speedup [Amdahl's Law]:     23.255814
+Actual Speedup:                         0.455402
+Speedup Efficiency:                     1.958228%
+
+Difference in Average Serial Time (Double vs Integer):          0.000005s
+Difference in Average Parallel Time (Double vs Integer):        0.000425s
+Difference in Theoretical Speedup (Double vs Integer):          -21.625379
+Difference in Actual Speedup (Double vs Integer):               -0.359463
+Difference in Speedup Efficiency (Double vs Integer):           3.926035%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 40 40 40 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000124s
+Average Parallel Time:                  0.000535s
+Theoretical Speedup [Amdahl's Law]:     1.639344
+Actual Speedup:                         0.232506
+Speedup Efficiency:                     14.182886%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000115s
+Average Parallel Time:                  0.000099s
+Theoretical Speedup [Amdahl's Law]:     28.776978
+Actual Speedup:                         1.162292
+Speedup Efficiency:                     4.038963%
+
+Difference in Average Serial Time (Double vs Integer):          0.000010s
+Difference in Average Parallel Time (Double vs Integer):        0.000436s
+Difference in Theoretical Speedup (Double vs Integer):          -27.137634
+Difference in Actual Speedup (Double vs Integer):               -0.929785
+Difference in Speedup Efficiency (Double vs Integer):           10.143923%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 50 50 50 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000229s
+Average Parallel Time:                  0.000530s
+Theoretical Speedup [Amdahl's Law]:     1.644737
+Actual Speedup:                         0.433133
+Speedup Efficiency:                     26.334472%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000207s
+Average Parallel Time:                  0.000101s
+Theoretical Speedup [Amdahl's Law]:     33.557047
+Actual Speedup:                         2.047460
+Speedup Efficiency:                     6.101432%
+
+Difference in Average Serial Time (Double vs Integer):          0.000022s
+Difference in Average Parallel Time (Double vs Integer):        0.000428s
+Difference in Theoretical Speedup (Double vs Integer):          -31.912310
+Difference in Actual Speedup (Double vs Integer):               -1.614328
+Difference in Speedup Efficiency (Double vs Integer):           20.233040%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 60 60 60 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000397s
+Average Parallel Time:                  0.000533s
+Theoretical Speedup [Amdahl's Law]:     1.648352
+Actual Speedup:                         0.745316
+Speedup Efficiency:                     45.215857%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000365s
+Average Parallel Time:                  0.000107s
+Theoretical Speedup [Amdahl's Law]:     37.735849
+Actual Speedup:                         3.422244
+Speedup Efficiency:                     9.068947%
+
+Difference in Average Serial Time (Double vs Integer):          0.000032s
+Difference in Average Parallel Time (Double vs Integer):        0.000426s
+Difference in Theoretical Speedup (Double vs Integer):          -36.087497
+Difference in Actual Speedup (Double vs Integer):               -2.676928
+Difference in Speedup Efficiency (Double vs Integer):           36.146911%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 70 70 70 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000634s
+Average Parallel Time:                  0.000554s
+Theoretical Speedup [Amdahl's Law]:     1.650943
+Actual Speedup:                         1.144285
+Speedup Efficiency:                     69.310956%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000567s
+Average Parallel Time:                  0.000110s
+Theoretical Speedup [Amdahl's Law]:     41.420118
+Actual Speedup:                         5.157636
+Speedup Efficiency:                     12.452006%
+
+Difference in Average Serial Time (Double vs Integer):          0.000067s
+Difference in Average Parallel Time (Double vs Integer):        0.000444s
+Difference in Theoretical Speedup (Double vs Integer):          -39.769175
+Difference in Actual Speedup (Double vs Integer):               -4.013351
+Difference in Speedup Efficiency (Double vs Integer):           56.858950%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 80 80 80 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.000966s
+Average Parallel Time:                  0.000553s
+Theoretical Speedup [Amdahl's Law]:     1.652893
+Actual Speedup:                         1.746827
+Speedup Efficiency:                     105.683049%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.000889s
+Average Parallel Time:                  0.000112s
+Theoretical Speedup [Amdahl's Law]:     44.692737
+Actual Speedup:                         7.951560
+Speedup Efficiency:                     17.791615%
+
+Difference in Average Serial Time (Double vs Integer):          0.000077s
+Difference in Average Parallel Time (Double vs Integer):        0.000441s
+Difference in Theoretical Speedup (Double vs Integer):          -43.039845
+Difference in Actual Speedup (Double vs Integer):               -6.204732
+Difference in Speedup Efficiency (Double vs Integer):           87.891434%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 90 90 90 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.001342s
+Average Parallel Time:                  0.000574s
+Theoretical Speedup [Amdahl's Law]:     1.654412
+Actual Speedup:                         2.336565
+Speedup Efficiency:                     141.232393%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.001210s
+Average Parallel Time:                  0.000125s
+Theoretical Speedup [Amdahl's Law]:     47.619048
+Actual Speedup:                         9.692562
+Speedup Efficiency:                     20.354379%
+
+Difference in Average Serial Time (Double vs Integer):          0.000131s
+Difference in Average Parallel Time (Double vs Integer):        0.000449s
+Difference in Theoretical Speedup (Double vs Integer):          -45.964636
+Difference in Actual Speedup (Double vs Integer):               -7.355996
+Difference in Speedup Efficiency (Double vs Integer):           120.878014%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 100 100 100 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.001879s
+Average Parallel Time:                  0.000558s
+Theoretical Speedup [Amdahl's Law]:     1.655629
+Actual Speedup:                         3.364802
+Speedup Efficiency:                     203.234018%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.001727s
+Average Parallel Time:                  0.000129s
+Theoretical Speedup [Amdahl's Law]:     50.251256
+Actual Speedup:                         13.370490
+Speedup Efficiency:                     26.607275%
+
+Difference in Average Serial Time (Double vs Integer):          0.000152s
+Difference in Average Parallel Time (Double vs Integer):        0.000429s
+Difference in Theoretical Speedup (Double vs Integer):          -48.595627
+Difference in Actual Speedup (Double vs Integer):               -10.005688
+Difference in Speedup Efficiency (Double vs Integer):           176.626743%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 100 100 1000 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.021104s
+Average Parallel Time:                  0.001074s
+Theoretical Speedup [Amdahl's Law]:     1.655629
+Actual Speedup:                         19.644380
+Speedup Efficiency:                     1186.520527%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.019716s
+Average Parallel Time:                  0.000308s
+Theoretical Speedup [Amdahl's Law]:     50.251256
+Actual Speedup:                         64.054106
+Speedup Efficiency:                     127.467671%
+
+Difference in Average Serial Time (Double vs Integer):          0.001388s
+Difference in Average Parallel Time (Double vs Integer):        0.000766s
+Difference in Theoretical Speedup (Double vs Integer):          -48.595627
+Difference in Actual Speedup (Double vs Integer):               -44.409727
+Difference in Speedup Efficiency (Double vs Integer):           1059.052856%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 100 100 5000 100
+Double Matrix Multiplication:
+Average Serial Time:                    0.105567s
+Average Parallel Time:                  0.002920s
+Theoretical Speedup [Amdahl's Law]:     1.655629
+Actual Speedup:                         36.157646
+Speedup Efficiency:                     2183.921815%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    0.099439s
+Average Parallel Time:                  0.001489s
+Theoretical Speedup [Amdahl's Law]:     50.251256
+Actual Speedup:                         66.778248
+Speedup Efficiency:                     132.888714%
+
+Difference in Average Serial Time (Double vs Integer):          0.006127s
+Difference in Average Parallel Time (Double vs Integer):        0.001431s
+Difference in Theoretical Speedup (Double vs Integer):          -48.595627
+Difference in Actual Speedup (Double vs Integer):               -30.620602
+Difference in Speedup Efficiency (Double vs Integer):           2051.033101%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 1000 1000 5000 1
+Warning: The total number of elements (5000000000) may be too large and could lead to a segmentation fault due to
+insufficient memory! Estimated memory usage: 83.92 MB (0.08 GB).
+Double Matrix Multiplication:
+Average Serial Time:                    19.005602s
+Average Parallel Time:                  0.137432s
+Theoretical Speedup [Amdahl's Law]:     1.665556
+Actual Speedup:                         138.290999
+Speedup Efficiency:                     8302.991577%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    13.646605s
+Average Parallel Time:                  0.046152s
+Theoretical Speedup [Amdahl's Law]:     90.991811
+Actual Speedup:                         295.687015
+Speedup Efficiency:                     324.960029%
+
+Difference in Average Serial Time (Double vs Integer):          5.358997s
+Difference in Average Parallel Time (Double vs Integer):        0.091280s
+Difference in Theoretical Speedup (Double vs Integer):          -89.326254
+Difference in Actual Speedup (Double vs Integer):               -157.396016
+Difference in Speedup Efficiency (Double vs Integer):           7978.031548%
+
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q4 1000 1000 10000 10
+Warning: The total number of elements (10000000000) may be too large and could lead to a segmentation fault due to
+insufficient memory! Estimated memory usage: 160.22 MB (0.16 GB).
+Double Matrix Multiplication:
+Average Serial Time:                    35.720104s
+Average Parallel Time:                  0.185100s
+Theoretical Speedup [Amdahl's Law]:     1.665556
+Actual Speedup:                         192.976972
+Speedup Efficiency:                     11586.337391%
+
+Integer Matrix Multiplication:
+Average Serial Time:                    29.542459s
+Average Parallel Time:                  0.085631s
+Theoretical Speedup [Amdahl's Law]:     90.991811
+Actual Speedup:                         344.999121
+Speedup Efficiency:                     379.154034%
+
+Difference in Average Serial Time (Double vs Integer):          6.177645s
+Difference in Average Parallel Time (Double vs Integer):        0.099470s
+Difference in Theoretical Speedup (Double vs Integer):          -89.326254
+Difference in Actual Speedup (Double vs Integer):               -152.022149
+Difference in Speedup Efficiency (Double vs Integer):           11207.183357%

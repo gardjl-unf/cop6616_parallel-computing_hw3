@@ -1,0 +1,49 @@
+n01480000@cis-gpu3:~/cop6616_parallel-computing_hw3$ ./q3
+Image 1:
+Average Serial Time:                    0.205432s
+Average Parallel Time:                  0.188922s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.087390
+Speedup Efficiency:                     65.285871%
+
+Image 2:
+Average Serial Time:                    0.089472s
+Average Parallel Time:                  0.044951s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.990425
+Speedup Efficiency:                     119.503240%
+
+Image 3:
+Average Serial Time:                    0.173901s
+Average Parallel Time:                  0.102234s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.701008
+Speedup Efficiency:                     102.126896%
+
+Image 4:
+Average Serial Time:                    0.189884s
+Average Parallel Time:                  0.089226s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         2.128112
+Speedup Efficiency:                     127.769839%
+
+Image 5:
+Average Serial Time:                    0.157423s
+Average Parallel Time:                  0.107307s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.467029
+Speedup Efficiency:                     88.079039%
+
+Image 6:
+Average Serial Time:                    0.167432s
+Average Parallel Time:                  0.102241s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.637612
+Speedup Efficiency:                     98.320699%
+
+Image 7:
+Average Serial Time:                    0.163922s
+Average Parallel Time:                  0.131684s
+Theoretical Speedup [Amdahl's Law]:     1.665582
+Actual Speedup:                         1.244815
+Speedup Efficiency:                     74.737519%

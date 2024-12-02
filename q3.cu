@@ -437,7 +437,7 @@ int main(int argc, char** argv) {
         printf("Average Serial Time:\t\t\t%lfs\n", total_serial_time);
         printf("Average Parallel Time:\t\t\t%lfs\n", total_parallel_time);
         printf("Theoretical Speedup [Amdahl's Law]:\t%lf\n", theoretical_speedup);
-        printf("Actual Speedup:\t\t\t%lf\n", actual_speedup);
+        printf("Actual Speedup:\t\t\t\t%lf\n", actual_speedup);
         printf("Speedup Efficiency:\t\t\t%lf%%\n\n", speedup_ratio);
     }
 

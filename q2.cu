@@ -5,7 +5,7 @@
  * Instructor: Scott Piersall
  * Assignment: Homework 3
  * Filename: q2.cu
- * Description: This program computes the Euclidean distance between two points in 3D space using CUDA.
+ * Description: This program computes the Euclidean distance between two points in n-D space using CUDA.
  */
 
 /**
